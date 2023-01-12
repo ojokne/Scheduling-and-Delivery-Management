@@ -1,0 +1,37 @@
+{
+  "name": "scheduling-and-delivery-management",
+  "version": "1.0.0",
+  "description": "The App is used to schedule and manage deliveries including setting delivery dates and times, routing and dispatch",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ojokne/Scheduling-and-Delivery-Management.git"
+  },
+  "keywords": [
+    "express.js",
+    "node.js"
+  ],
+  "author": "Ojok Emmanuel Nsubuga",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/ojokne/Scheduling-and-Delivery-Management/issues"
+  },
+  "homepage": "https://github.com/ojokne/Scheduling-and-Delivery-Management#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "connect-sqlite3": "^0.9.13",
+    "express-session": "^1.17.3",
+    "express.js": "^1.0.0",
+    "mysql2": "^3.0.0",
+    "nodemailer": "^6.9.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^6.28.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
