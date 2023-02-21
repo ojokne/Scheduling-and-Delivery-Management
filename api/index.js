@@ -27,12 +27,13 @@ app.use(
     secret: process.env.SESSION_SECRET,
     saveUninitialized: false,
     resave: false,
+    name: "ridelink",
 
     cookie: {
       maxAge: 90000000,
       signed: true,
-      sameSite: "None",
-      secure: true,
+      sameSite: true,
+      // secure: true,
     },
     store: new SQLiteStore({ db: "session.db", dir: "./" }),
   })
