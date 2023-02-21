@@ -31,7 +31,7 @@ app.use(
     cookie: {
       maxAge: 90000000,
       signed: true,
-      sameSite: "none",
+      sameSite: "None",
     },
     store: new SQLiteStore({ db: "session.db", dir: "./" }),
   })
