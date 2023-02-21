@@ -27,9 +27,11 @@ app.use(
     secret: process.env.SESSION_SECRET,
     saveUninitialized: false,
     resave: false,
+
     cookie: {
-      maxAge: 900000000,
-      signed: true,
+      maxAge: 90000000,
+      // signed: true,
+      secure: true,
     },
     store: new SQLiteStore({ db: "session.db", dir: "./" }),
   })
