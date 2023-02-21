@@ -13,6 +13,9 @@ const {
 // createAssociations();
 // sync();
 const PORT = process.env.PORT || 5000;
+app.get("/", (req, res) => {
+  res.send({ msg: "working well" });
+});
 app.listen(PORT, (err) => {
   if (err) {
     console.log("an error occurred");
