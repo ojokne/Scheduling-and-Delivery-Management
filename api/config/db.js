@@ -4,21 +4,25 @@ if (process.env.NODE_ENV != "production") {
 
 const { Sequelize } = require("sequelize");
 
-const sequelize = new Sequelize(
-  process.env.DATABASE_NAME,
-  process.env.DATABASE_USERNAME,
-  process.env.DATABASE_PASSWORD,
-  {
-    host: process.env.DATABASE_HOST,
-    dialect: "mysql",
-    pool: {
-      min: 0,
-      max: 5,
-      idle: 1000,
-    },
-  }
-);
+// const sequelize = new Sequelize(
+//   process.env.DATABASE_NAME,
+//   process.env.DATABASE_USERNAME,
+//   process.env.DATABASE_PASSWORD,
+//   {
+//     host: process.env.DATABASE_HOST,
+//     dialect: "mysql",
+//     pool: {
+//       min: 0,
+//       max: 5,
+//       idle: 1000,
+//     },
+//   }
+// );
 
+const sequelize = new Sequelize({
+  dialect: "sqlite",
+  storage: "ridelink.sqlite",
+});
 const authenticate = async () => {
   try {
     await sequelize.authenticate();

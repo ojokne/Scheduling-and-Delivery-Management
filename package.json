@@ -1,28 +1,29 @@
 {
-  "name": "scheduling-and-delivery-management",
+  "name": "ridelinkschedulerapi",
   "version": "1.0.0",
   "description": "The App is used to schedule and manage deliveries including setting delivery dates and times, routing and dispatch",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ojokne/Scheduling-and-Delivery-Management.git"
+    "url": "git+https://github.com/RidelinkSystems/RidelinkSchedulerAPI.git"
   },
   "keywords": [
-    "express.js",
-    "node.js"
+    "ridelink"
   ],
   "author": "Ojok Emmanuel Nsubuga",
-  "license": "GPL-3.0-or-later",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ojokne/Scheduling-and-Delivery-Management/issues"
+    "url": "https://github.com/RidelinkSystems/RidelinkSchedulerAPI/issues"
   },
-  "homepage": "https://github.com/ojokne/Scheduling-and-Delivery-Management#readme",
+  "homepage": "https://github.com/RidelinkSystems/RidelinkSchedulerAPI#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "connect-sqlite3": "^0.9.13",
+    "cors": "^2.8.5",
     "express-session": "^1.17.3",
     "express.js": "^1.0.0",
     "mysql2": "^3.0.0",

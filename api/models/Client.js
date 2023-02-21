@@ -1,41 +1,38 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../config/db");
 
-const Driver = sequelize.define(
-  "Driver",
+const Client = sequelize.define(
+  "Client",
   {
-    driverId: {
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    firstName: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    middleName: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    phone: {
+    phoneNumber: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     email: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(64),
       allowNull: false,
     },
     password: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(60),
       allowNull: false,
     },
     code: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(5),
       allowNull: false,
+    },
+    role: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 2,
     },
   },
   {
@@ -43,4 +40,4 @@ const Driver = sequelize.define(
   }
 );
 
-module.exports = Driver;
+module.exports = Client;
