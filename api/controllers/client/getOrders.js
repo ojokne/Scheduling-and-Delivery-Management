@@ -7,7 +7,6 @@ const getOrders = async (req, res) => {
   if (req.user) {
     isAuthorized = req.user.role == 2;
     isLoggedIn = true;
-    console.log(req.user);
     if (isAuthorized) {
       let clientId = req.params.clientId;
       try {

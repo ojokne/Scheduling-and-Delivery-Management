@@ -5,7 +5,8 @@ const order = async (req, res) => {
   let isLoggedIn = false;
   let isAuthorized = false;
   let isCreated = false;
-
+  console.log(req.user);
+  let user = req.user;
   if (req.user) {
     isAuthorized = req.user.role == 2;
     isLoggedIn = true;
@@ -18,7 +19,7 @@ const order = async (req, res) => {
       let deliveryLocation = req.body.deliveryLocation;
       let productName = req.body.productName;
       let productWeight = req.body.productWeight;
-      let proposedScheduleDate = req.body.proposedScheduleDate
+      let proposedScheduleDate = req.body.proposedScheduleDate;
       try {
         let { create, createMessage } = await clientServices.order(
           deliveryInstructions,
@@ -37,6 +38,6 @@ const order = async (req, res) => {
       }
     }
   }
-  res.send({ msg, isLoggedIn, isAuthorized, isCreated });
+  res.send({ msg, isLoggedIn, isAuthorized, isCreated, user });
 };
 module.exports = order;
