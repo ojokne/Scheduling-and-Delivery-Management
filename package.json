@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "The App is used to schedule and manage deliveries including setting delivery dates and times, routing and dispatch",
   "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
