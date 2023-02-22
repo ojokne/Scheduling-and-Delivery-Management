@@ -12,10 +12,10 @@ const VERCEL = ["https://ridelink-client.vercel.app"];
 const LOCAL = ["http://localhost:3000"];
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// app.use((req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Credentials", true);
-//   next();
-// });
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  next();
+});
 app.use(
   cors({
     credentials: true,
