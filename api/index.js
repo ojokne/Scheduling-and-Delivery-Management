@@ -33,7 +33,7 @@ app.use(
       maxAge: 90000000,
       signed: true,
       // sameSite: "none",
-      secure: true,
+      // secure: true,
     },
     store: new SQLiteStore({ db: "session.db", dir: "./" }),
   })
