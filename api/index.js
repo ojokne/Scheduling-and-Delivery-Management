@@ -31,12 +31,12 @@ app.use(
     resave: false,
     name: "ridelink",
 
-    cookie: {
-      maxAge: 90000000,
-      signed: true,
-      // sameSite: "none",
-      // secure: true,
-    },
+    // cookie: {
+    //   maxAge: 90000000,
+    //   signed: true,
+    //   // sameSite: "none",
+    //   // secure: true,
+    // },
     store: new SQLiteStore({ db: "session.db", dir: "./" }),
   })
 );
