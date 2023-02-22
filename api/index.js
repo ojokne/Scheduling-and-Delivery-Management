@@ -11,6 +11,8 @@ const NETLIFY = ["https://ridelink-client.netlify.app"];
 const VERCEL = ["https://ridelink-client.vercel.app"];
 const LOCAL = ["http://localhost:3000"];
 app.use(express.json());
+
+app.set("trust proxy", 1);
 app.use(express.urlencoded({ extended: false }));
 // app.use((req, res, next) => {
 //   res.setHeader("Access-Control-Allow-Credentials", true);
