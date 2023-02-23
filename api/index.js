@@ -14,10 +14,7 @@ app.use(express.json());
 
 app.set("trust proxy", 1);
 app.use(express.urlencoded({ extended: false }));
-// app.use((req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Credentials", true);
-//   next();
-// });
+
 app.use(
   cors({
     credentials: true,
@@ -30,18 +27,11 @@ app.use(
     saveUninitialized: false,
     resave: false,
     name: "ridelink",
-
-    // cookie: {
-    //   maxAge: 86400000,
-    //   signed: true,
-    //   // sameSite: "none",
-    //   // secure: true,
-    // },
     cookie: {
       maxAge: 86400000,
       signed: true,
       sameSite: "none",
-      secure: true,
+      // secure: true,
     },
     store: new SQLiteStore({ db: "session.db", dir: "./" }),
   })
