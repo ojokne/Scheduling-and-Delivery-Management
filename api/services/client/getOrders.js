@@ -8,8 +8,9 @@ const getOrders = async (clientId) => {
         clientId: clientId,
       },
     });
-
+    console.log(returnedOrders);
     for (let i = 0; i < returnedOrders.length; i++) {
+      console.log(returnedOrders[i]);
       let data = {
         order: returnedOrders[i],
         trip: null,
