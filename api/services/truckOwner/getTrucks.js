@@ -13,8 +13,9 @@ const getTrucks = async (truckOwnerId) => {
       for (let i = 0; i < returnedTrucks.length; i++) {
         let truck = {
           trips: new Array(),
-          truckId: returnedTrucks[i].id,
-        };
+          // truckId: returnedTrucks[i].id,
+          truck: returnedTrucks[i],
+        }
         let trips = await Trip.findAll({
           where: {
             truckId: returnedTrucks[i].id,
