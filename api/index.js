@@ -11,6 +11,7 @@ const NETLIFY = ["https://ridelink-client.netlify.app"];
 const VERCEL = [
   "https://ridelink-client.vercel.app",
   "https://ridelink-admin.vercel.app",
+  "https://ridelink-truck-owner.vercel.app",
 ];
 const LOCAL = ["http://localhost:3000"];
 app.use(express.json());
