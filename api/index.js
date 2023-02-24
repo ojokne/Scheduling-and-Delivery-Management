@@ -8,7 +8,10 @@ const routes = require("./routes/index");
 const app = express();
 
 const NETLIFY = ["https://ridelink-client.netlify.app"];
-const VERCEL = ["https://ridelink-client.vercel.app"];
+const VERCEL = [
+  "https://ridelink-client.vercel.app",
+  "https://ridelink-admin.vercel.app",
+];
 const LOCAL = ["http://localhost:3000"];
 app.use(express.json());
 
