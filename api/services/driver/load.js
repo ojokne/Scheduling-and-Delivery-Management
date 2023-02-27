@@ -24,7 +24,7 @@ const load = async (orderId, driverId) => {
       loadOrder = true;
       if (!trip.isLoaded) {
         trip.isLoaded = true;
-        trip.loadedAt = new Date().toISOString()
+        trip.loadedAt = new Date().toISOString();
         trip.save();
 
         try {
@@ -38,7 +38,7 @@ const load = async (orderId, driverId) => {
 
           await sendEmail(
             client.email,
-            "Delivery  Loaded",
+            "Product Loaded",
             `<p>You Order has been successfully loaded onto the truck waiting for set off<p>
           <p>Thank you<p>`
           );
