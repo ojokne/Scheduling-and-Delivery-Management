@@ -12,6 +12,7 @@ const VERCEL = [
   "https://ridelink-client.vercel.app",
   "https://ridelink-admin.vercel.app",
   "https://ridelink-truck-owner.vercel.app",
+  "https://ridelink-driver.vercel.app",
 ];
 const LOCAL = ["http://localhost:3000", "http://localhost:3001"];
 app.use(express.json());
