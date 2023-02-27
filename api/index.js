@@ -13,7 +13,7 @@ const VERCEL = [
   "https://ridelink-admin.vercel.app",
   "https://ridelink-truck-owner.vercel.app",
 ];
-const LOCAL = ["http://localhost:3000"];
+const LOCAL = ["http://localhost:3000", "http://localhost:3001"];
 app.use(express.json());
 
 app.set("trust proxy", 1);
