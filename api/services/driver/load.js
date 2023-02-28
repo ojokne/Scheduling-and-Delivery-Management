@@ -39,8 +39,8 @@ const load = async (orderId, driverId) => {
           await sendEmail(
             client.email,
             "Product Loaded",
-            `<p>You Order has been successfully loaded onto the truck waiting for set off<p>
-          <p>Thank you<p>`
+            `<p>You Order has been successfully loaded onto the truck waiting for set off</p>
+          <p>Thank you</p>`
           );
         } catch (e) {
           console.log(e);
