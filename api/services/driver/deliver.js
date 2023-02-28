@@ -1,4 +1,4 @@
-const { Order, Client, Driver, Trip } = require("../../models");
+const { Order, Client, Driver, Trip, Truck } = require("../../models");
 const { sendEmail } = require("../../utilities");
 
 const deliver = async (orderId, driverId) => {
@@ -32,18 +32,18 @@ const deliver = async (orderId, driverId) => {
           driver.isAvailable = true;
           driver.save();
 
-          let order = Order.findByPk(trip.orderId);
-          let client = await Client.findOne({
-            where: {
-              id: order.clientId,
-            },
-          });
+          let truck = await Truck.findByPk(trip.truckId);
+          truck.isAvailable = true;
+          truck.save();
 
+          let order = Order.findByPk(trip.orderId);
+          let client = await Client.findByPk(order.clientId);
+          console.log(client.email);
           await sendEmail(
             client.email,
             "Delivery Complete",
-            `<p>You Order has been successfully delivered<p>
-          <p>Thank you<p>`
+            `<p>You Order has been successfully delivered</p>
+          <p>Thank you</p>`
           );
         } catch (e) {
           console.log(e);
