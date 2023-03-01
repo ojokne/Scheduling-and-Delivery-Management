@@ -14,7 +14,11 @@ const VERCEL = [
   "https://ridelink-truck-owner.vercel.app",
   "https://ridelink-driver.vercel.app",
 ];
-const LOCAL = ["http://localhost:3000", "http://localhost:3001"];
+const LOCAL = [
+  "http://localhost:3000",
+  "http://localhost:3001",
+  "http://127.1.1.1:3000",
+];
 app.use(express.json());
 
 app.set("trust proxy", 1);
@@ -31,12 +35,13 @@ app.use(
     secret: process.env.SESSION_SECRET,
     saveUninitialized: false,
     resave: false,
-    name: "ridelink",
+    name: "ridelinkAdmin",
     cookie: {
       maxAge: 86400000,
       signed: true,
       sameSite: "none",
       secure: true,
+      domain: "https://ridelink-admin.vercel.app",
     },
     store: new SQLiteStore({ db: "session.db", dir: "./" }),
   })
