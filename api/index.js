@@ -35,13 +35,12 @@ app.use(
     secret: process.env.SESSION_SECRET,
     saveUninitialized: false,
     resave: false,
-    name: "ridelinkAdmin",
+    name: "ridelink",
     cookie: {
       maxAge: 86400000,
       signed: true,
       sameSite: "none",
       secure: true,
-      domain: "ridelink-admin.vercel.app",
     },
     store: new SQLiteStore({ db: "session.db", dir: "./" }),
   })
