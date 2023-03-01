@@ -41,7 +41,7 @@ app.use(
       signed: true,
       sameSite: "none",
       secure: true,
-      domain: "https://ridelink-admin.vercel.app",
+      domain: "ridelink-admin.vercel.app",
     },
     store: new SQLiteStore({ db: "session.db", dir: "./" }),
   })
