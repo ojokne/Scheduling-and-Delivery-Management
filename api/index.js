@@ -18,10 +18,10 @@ const LOCAL = [
   "http://localhost:3000",
   "http://localhost:3001",
   "http://127.1.1.1:3000",
+  "http://127.2.2.2:3002",
 ];
 app.use(express.json());
 
-app.set("trust proxy", 1);
 app.use(express.urlencoded({ extended: false }));
 
 app.use(
@@ -30,22 +30,23 @@ app.use(
     origin: [...NETLIFY, ...VERCEL, ...LOCAL],
   })
 );
-app.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    saveUninitialized: false,
-    resave: false,
-    name: "ridelink",
-    cookie: {
-      maxAge: 86400000,
-      signed: true,
-      sameSite: "none",
-      secure: true,
-    },
-    store: new SQLiteStore({ db: "session.db", dir: "./" }),
-  })
-);
-app.use(passport.authenticate("session"));
+
+// app.use(
+//   session({
+//     secret: process.env.SESSION_SECRET,
+//     saveUninitialized: false,
+//     resave: false,
+//     name: "ridelink",
+//     cookie: {
+//       maxAge: 86400000,
+//       signed: true,
+//       sameSite: "none",
+//       secure: true,
+//     },
+//     store: new SQLiteStore({ db: "session.db", dir: "./" }),
+//   })
+// );
+// app.use(passport.authenticate());
 
 initializePassport(passport);
 

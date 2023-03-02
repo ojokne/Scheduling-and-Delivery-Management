@@ -10,13 +10,15 @@ const {
   Driver,
   createAssociations,
 } = require("./api/models/index");
+const passport = require("passport");
 // createAssociations();
 // sync();
 const PORT = process.env.PORT || 5000;
+
 app.get("/", (req, res) => {
   res.send({ msg: "working well" });
 });
-app.listen(PORT, (err) => {
+app.listen(PORT, "127.5.5.5", (err) => {
   if (err) {
     console.log("an error occurred");
   } else {

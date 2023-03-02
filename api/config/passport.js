@@ -1,45 +1,35 @@
-const { findAndVerify } = require("../utilities");
+if (process.env.NODE_ENV != "production") {
+  require("dotenv").config();
+}
 
-const LocalStrategy = require("passport-local").Strategy;
+const getUser = require("../utilities/getUser");
+const JwtStrategy = require("passport-jwt").Strategy;
+const ExtractJwt = require("passport-jwt").ExtractJwt;
+const passportJWTOptions = {
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  secretOrKey: process.env.SECRET_KEY,
+
+  jwtExpired: (jwtPayload, cb) => {
+    return cb(null, false, { message: "Token expired" });
+  },
+};
 
 const initializePassport = (passport) => {
   passport.use(
-    new LocalStrategy(
-      {
-        usernameField: "email",
-        passwordField: "password",
-        passReqToCallback: true,
-      },
-      async (req, email, password, cb) => {
-        try {
-          const { user, isAuthenticated } = await findAndVerify(
-            email,
-            password,
-            req.body.role
-          );
-          if (user) {
-            if (isAuthenticated) {
-              return cb(null, user);
-            } else {
-              return cb(null, false, { message: "Password incorrect" });
-            }
-          } else {
-            return cb(null, false, { message: "No user with that username" });
-          }
-        } catch (err) {
-          return cb(err);
+    new JwtStrategy(passportJWTOptions, async (payload, cb) => {
+      try {
+        const user = await getUser(payload.sub, payload.role);
+        console.log(payload);
+        if (user) {
+          return cb(null, user);
+        } else {
+          return cb(null, false, { message: "Please Login" });
         }
+      } catch (err) {
+        return cb(err);
       }
-    )
+    })
   );
-
-  passport.serializeUser((user, cb) => {
-    return cb(null, { id: user.id, email: user.email, role: user.role });
-  });
-
-  passport.deserializeUser((user, cb) => {
-    return cb(null, user);
-  });
 };
 
 module.exports = initializePassport;

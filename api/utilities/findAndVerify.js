@@ -1,9 +1,9 @@
 const getUser = require("./getUser");
 const verifyUser = require("./verifyUser");
 
-const findAndVerify = async (email, password, role) => {
+const findAndVerify = async (id, role) => {
   let isAuthenticated = false;
-  let user = await getUser(email, role);
+  let user = await getUser(id, role);
   if (user) {
     isAuthenticated = verifyUser(password, user.password);
   }

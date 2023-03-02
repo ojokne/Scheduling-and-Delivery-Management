@@ -1,11 +1,15 @@
 const { Admin, Driver, Client, TruckOwner } = require("../models");
 
-const getUser = async (id, role) => {
+const getUserByEmail = async (email, role) => {
   let user = null;
   switch (role) {
     case 0: {
       try {
-        user = await Admin.findByPk(id);
+        user = await Admin.findOne({
+          where: {
+            email: email,
+          },
+        });
       } catch (e) {
         console.log(e);
       }
@@ -13,7 +17,11 @@ const getUser = async (id, role) => {
     }
     case 1: {
       try {
-        user = await Driver.findByPk(id);
+        user = await Driver.findOne({
+          where: {
+            email: email,
+          },
+        });
       } catch (e) {
         console.log(e);
       }
@@ -21,7 +29,11 @@ const getUser = async (id, role) => {
     }
     case 2: {
       try {
-        user = await Client.findByPk(id);
+        user = await Client.findOne({
+          where: {
+            email: email,
+          },
+        });
       } catch (e) {
         console.log(e);
       }
@@ -29,7 +41,11 @@ const getUser = async (id, role) => {
     }
     case 3: {
       try {
-        user = await TruckOwner.findByPk(id);
+        user = await TruckOwner.findOne({
+          where: {
+            email: email,
+          },
+        });
       } catch (e) {
         console.log(e);
       }
@@ -40,4 +56,4 @@ const getUser = async (id, role) => {
   return user;
 };
 
-module.exports = getUser;
+module.exports = getUserByEmail;
