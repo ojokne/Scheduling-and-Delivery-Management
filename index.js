@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 5000;
 app.get("/", (req, res) => {
   res.send({ msg: "working well" });
 });
-app.listen(PORT, "127.5.5.5", (err) => {
+app.listen(PORT, (err) => {
   if (err) {
     console.log("an error occurred");
   } else {

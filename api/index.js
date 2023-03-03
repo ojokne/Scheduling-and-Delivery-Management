@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(
   cors({
-    credentials: true,
+    // credentials: true,
     origin: [...VERCEL],
   })
 );
